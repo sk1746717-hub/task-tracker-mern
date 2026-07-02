@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 
 function TaskList({ tasks, editTask, deleteTask, getTasks }) {
-  const API = const API = "https://task-tracker-mern-2.onrender.com/api/tasks";
+  const API = "https://task-tracker-mern-2.onrender.com/api/tasks";
 
   // One Click Complete
   const completeTask = async (task) => {
