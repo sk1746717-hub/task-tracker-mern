@@ -9,7 +9,7 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const API = "http://localhost:5000/api/tasks";
+  const API = "https://task-tracker-mern-2.onrender.com";
 
   const [tasks, setTasks] = useState([]);
 
