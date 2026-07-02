@@ -27,15 +27,23 @@ function App() {
   const [sortBy, setSortBy] = useState("Newest");
 
   const getTasks = async () => {
-    try {
-      const res = await axios.get(API);
-      setTasks(res.data);
-    } catch (error) {
-      console.log(error);
-      toast.error("Failed to load tasks");
-    }
-  };
+  try {
+    const res = await axios.get(API);
+    console.log("API response:", res.data);
 
+    if (Array.isArray(res.data)) {
+      setTasks(res.data);
+    } else if (Array.isArray(res.data.tasks)) {
+      setTasks(res.data.tasks);
+    } else {
+      setTasks([]);
+    }
+  } catch (error) {
+    console.log(error);
+    toast.error("Failed to load tasks");
+    setTasks([]);
+  }
+};
   useEffect(() => {
     getTasks();
   }, []);
