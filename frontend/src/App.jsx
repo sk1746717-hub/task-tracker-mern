@@ -110,7 +110,7 @@ function App() {
     let filtered = [...tasks];
 
     filtered = filtered.filter((task) =>
-      task.title.toLowerCase().includes(search.toLowerCase())
+      (task.title || "").toLowerCase().includes((search || "").toLowerCase())
     );
 
     if (filter !== "All") {
